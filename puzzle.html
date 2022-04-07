@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<img id="img1" src="images/anh1.jpg" alt="1" onclick="changeImage(1)" height="auto" width="300"/></body>
+<img id="img2" src="images/anh1.jpg" alt="1" onclick="changeImage(2)" height="auto" width="300"/></body>
+<img id="img3" src="images/anh1.jpg" alt="1" onclick="changeImage(3)" height="auto" width="300"/></body>
+<script>
+
+    function changeImage(id) {
+        let img = document.getElementById('img' + id);
+        let index = +img.alt;
+        if (index < 4) {
+            index++;
+        } else {
+            index = 1;
+        }
+        img.src = `images/anh${index}.jpg`;
+        img.alt = index;
+        checkWin();
+    }
+
+    function checkWin() {
+        let img1 = document.getElementById('img1')
+        let img2 = document.getElementById('img2')
+        let img3 = document.getElementById('img3')
+        if (img1.alt == img2.alt && img2.alt == img3.alt) {
+            alert("Chúc mừng!")
+        }
+    }
+</script>
+</html>
